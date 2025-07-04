@@ -49,3 +49,14 @@ inotifywait -m -r -e modify,create,delete,move "$SRC" | while read path action f
     echo "Change detected: $action $file in $path"
     perform_backup
 done
+
+#The result below is what should pop up as a successful running of the script.
+:<<'Comment'
+./backup_automated.sh: line 17: /home/andrew/backups/backup_log.txt: No such file or directory
+Backup completed
+Watching for changes in /home/andrew/linux_practice...
+Setting up watches.  Beware: since -r was given, this may take a while!
+Watches established.
+
+Comment
+
