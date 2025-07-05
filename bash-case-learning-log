@@ -12,6 +12,8 @@ echo "What would you like to do?"
 	echo "4) create a user and group?"
 	echo "5) Exit"
 
+#Read users inout into the variable "option"
+
 #begin case statement
 
 case $option in
@@ -37,7 +39,7 @@ case $option in
 		read newgroup
 		sudo addgroup "$newgroup"
 
-		suder usermod -aG "$newgroup" "$newuser"
+		sudo usermod -aG "$newgroup" "$newuser"
 
 		echo "Groups for $newuser: "
 		groups "$newuser"  ;;
