@@ -1,0 +1,90 @@
+# Connect to Wi-Fi Using Terminal
+
+## 1. Turn on WiFi (Radio)
+
+```bash
+nmcli radio wifi on
+```
+
+This command enables the Wi-Fi radio, allowing your system to detect and connect to networks.
+
+---
+
+## 2. Check WiFi Status
+
+```bash
+nmcli radio
+```
+
+This shows whether Wi-Fi is enabled:
+
+- `enabled` = working  
+- `disabled` = turned off (soft block or hardware switch off)
+
+---
+
+## 3. Check WiFi Interface
+
+```bash
+nmcli device
+```
+
+Example output:
+```
+wlp1s0   wifi   disconnected  --  
+```
+
+- Your output may look slightly different.  
+- This shows the wireless device name (`wlp1s0`) and its current state (e.g., `disconnected` if not yet connected).
+
+---
+
+## 4. Scan for Available WiFi Networks
+
+```bash
+nmcli device wifi list
+```
+
+This scans nearby networks and shows:
+
+- **SSID** (network name)  
+- **Signal strength**  
+- **Security type** (e.g., WPA2)
+
+---
+
+## 5. Connect to a WiFi Network
+
+```bash
+nmcli device wifi connect "SSID" password "your_password"
+```
+
+**Example:**
+
+```bash
+nmcli device wifi connect "CSG-3a6f" password "fcf9a274"
+```
+
+This connects to the network and automatically saves the connection for future use.
+
+> 🔸 If the SSID has spaces, wrap it in quotes like "My Home Wifi"
+
+---
+
+## 6. Check Active Connection
+
+```bash
+nmcli connection show --active
+```
+
+This confirms your connection and shows the interface used (e.g., `wlp1s0`).
+
+---
+
+## 7. Get Your IP Address
+
+```bash
+ip a
+```
+
+Look under the `wlp1s0` section for your IP address (usually starts with `192.168.x.x` or `10.x.x.x`).
