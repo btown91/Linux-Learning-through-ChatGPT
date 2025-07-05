@@ -1,0 +1,50 @@
+#!/bin/bash
+
+echo "What is your name?"
+read name
+echo "Welcome, $name"
+
+echo "What would you like to do?"
+
+	echo "1) View date?"
+	echo "2) list all .txt files in current folder?"
+	echo "3) Backup your linux_practice folder to backups?"
+	echo "4) create a user and group?"
+	echo "5) Exit"
+
+#begin case statement
+
+case $option in
+ 1) echo "Today's date is: $(date)" ;;
+ 2) echo "Files in this folder:" ls ;;
+
+ 3) #create backup file of linux practice
+		SRC="$HOME/linux_practice"
+		DEST="$HOME/backups/backup_$(date +%Y%m%d)"
+
+		mkdir -p "$DEST"
+		cp -r "$SRC"/* "$DEST"
+
+		echo "Backup done at $(date) to $DEST" >> ~/backups/backup_log.txt
+		echo "Backup completed"  ;;
+
+ 4)
+		echo "Enter new username"
+		read newuser
+		sudo adduser "$newuser"
+
+		echo "Enter new group name: "
+		read newgroup
+		sudo addgroup "$newgroup"
+
+		suder usermod -aG "$newgroup" "$newuser"
+
+		echo "Groups for $newuser: "
+		groups "$newuser"  ;;
+
+5) 
+		echo "Goodbye, $name!"
+		exit 0
+
+esac
+
