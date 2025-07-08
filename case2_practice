@@ -16,7 +16,7 @@ echo "5) Exit?"
 read option
 
 case $option in 
-	1) echo "Here are all the files present" ls ;;
+	1) echo "Here are all the files present" && ls ;; #made correction by adding "&&" 
 	2) echo "What is your favorite fruit?"
 	   read fruit
 	   echo "You should have $fruit pie!"  ;;
@@ -39,7 +39,7 @@ case $option in
 		DEST="$HOME/backups/backup_$(date +%Y%m%d)"
 
 		mkdir -p "$DEST"
-		cp -r "$HOME"/* "$DEST"
+		cp -r "$SRC"/* "$DEST"  #for copying the folder into the DEST folder I had the wrong "Source Direcoty" and inputed the correct one.
 
 		echo "Backup done at $(date) for $DEST" >> ~/backups_2/backup_log.txt
 		echo "Backup has been completed. Thank you"
