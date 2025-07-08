@@ -1,5 +1,5 @@
   GNU nano 8.3              wifi_help.sh                       
-#!/bash/bin
+#!/bin/bash
 
 echo "Good day linux user, what is your name?"
 read name
@@ -15,11 +15,17 @@ echo "5)How to connect to a WiFi Network?"
 echo "6)How to check for Active Connections?"
 echo "7)How to get your IP Address?"
 
-#Now we are going to give the commands and give an explainatio>
+#Now we are going to give the commands and give an explaination of what is going on for each command.
+
 
 read option
 
 case $option in
-        1) echo "nmcli radio wifi on" # echo "This command ena>
+        1) echo "nmcli radio wifi on"
+           echo "This command enables the Wi-Fi Radio, allowing your system to detect and connect to networks" ;;
+
+        *)echo "Invalid option" ;;
+
+
 esac
 
