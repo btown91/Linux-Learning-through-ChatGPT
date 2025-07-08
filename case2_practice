@@ -1,0 +1,50 @@
+#!/bin/bash
+
+echo "What is your name?"
+read name
+echo "Welcome, $name. What would you like to do?"
+
+echo "1) List all files in current directory?"
+echo "2) Tell me your favorite fruit and I will tell you what pie you should have"
+echo "3) Create a new user and group"
+echo "4) Backup linux_practice directory?"
+echo "5) Exit?"
+
+
+#I will now make the attempt to do the case with very limited chatGPT assistance and or looking at previously used material"
+
+read option
+
+case $option in 
+	1) echo "Here are all the files present" ls ;;
+	2) echo "What is your favorite fruit?"
+	   read fruit
+	   echo "You should have $fruit pie!"  ;;
+	3) echo "Create new user name"
+	   read newuser
+	   sudo adduser "$newuser"
+
+	   echo "Create new group"
+	   read newgroup
+	   sudo addgroup "$newgroup"
+#At this point i had to go back to my notes and refresh.
+	   sudo chown -aG "$newgroup" "$newuser"
+
+	   echo "Groups for $newuser"
+	   groups "$newuser"
+		;;
+
+	4) echo "Creating backup for linux_practice"
+		SRC="$HOME/linux/practice"
+		DEST="$HOME/backups/backup_$(date +%Y%m%d)"
+
+		mkdir -p "$DEST"
+		cp -r "$HOME"/* "$DEST"
+
+		echo "Backup done at $(date) for $DEST" >> ~/backups_2/backup_log.txt
+		echo "Backup has been completed. Thank you"
+		;;
+	5) echo "Goodbye, $name. Have a good day and keep learning Linux"
+	   exit 0 ;;
+	*) echo "Invalid option human" ;;
+esac
