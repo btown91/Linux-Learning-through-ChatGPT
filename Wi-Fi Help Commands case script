@@ -1,0 +1,25 @@
+  GNU nano 8.3              wifi_help.sh                       
+#!/bash/bin
+
+echo "Good day linux user, what is your name?"
+read name
+echo "Hello $name, what WiFi help do you need?"
+
+#list of Common WiFi commands to help out with
+
+echo "1)How to turn on WiFi (radio)?"
+echo "2)How to check WiFi Status?"
+echo "3)How to check the WiFi interface?"
+echo "4)How to Scan for Available WiFi Networks?"
+echo "5)How to connect to a WiFi Network?"
+echo "6)How to check for Active Connections?"
+echo "7)How to get your IP Address?"
+
+#Now we are going to give the commands and give an explainatio>
+
+read option
+
+case $option in
+        1) echo "nmcli radio wifi on" # echo "This command ena>
+esac
+
