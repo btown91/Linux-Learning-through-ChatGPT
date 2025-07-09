@@ -24,8 +24,28 @@ case $option in
         1) echo "nmcli radio wifi on"
            echo "This command enables the Wi-Fi Radio, allowing your system to detect and connect to networks" ;;
 
-        *)echo "Invalid option" ;;
+  2) echo "nmcli radio"
+           echo "This shows whether the WiFi is enabled" ;;
 
+        3) echo "nmcli device"
+           echo "This shows the wireless device name ('wlp1s0') and its current state (e.g. 'disconnected' if not connected)"
+           echo "Your output may look slightly different"
+           echo "(e.g.  wlp1s0  wifi  disconnected  --)" ;;
+
+        4) echo "nmcli device wifi list"
+           echo "This scans for nearby networks and shows:"
+           echo "**SSID** (network name)"
+           echo "**Signal Strength**"
+           echo "**Security Type** (e.g. WPA2)" ;;
+
+        5) echo "nmcli device wifi connect 'SSID' password 'your_password'" ;;
+
+        6) echo "nmcli connection show --active" 
+           echo "This confirms your connection and shows the interface used (e.g. 'wlp1s0')" ;;
+
+        7) echo "ip a" ;;
+
+        *)echo "Invalid option" ;;
 
 esac
 
