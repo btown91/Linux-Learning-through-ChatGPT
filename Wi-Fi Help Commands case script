@@ -5,6 +5,11 @@ echo "Good day linux user, what is your name?"
 read name
 echo "Hello $name, what WiFi help do you need?"
 
+  echo #space added
+
+#Start of infinite loop to allow repeated use of the menu
+while true; do
+
 #list of Common WiFi commands to help out with
 
 echo "1)How to turn on WiFi (radio)?"
@@ -14,6 +19,7 @@ echo "4)How to Scan for Available WiFi Networks?"
 echo "5)How to connect to a WiFi Network?"
 echo "6)How to check for Active Connections?"
 echo "7)How to get your IP Address?"
+echo "8)Quit"
 
 #Now we are going to give the commands and give an explaination of what is going on for each command.
 
@@ -45,7 +51,12 @@ case $option in
 
         7) echo "ip a" ;;
 
+        8) echo "Goodbye $name" 
+           break  ;;   #breaks the infinite loop and ends the script
+
+
         *)echo "Invalid option" ;;
 
-esac
+  esac
 
+done
