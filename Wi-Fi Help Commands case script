@@ -99,7 +99,7 @@ case $option in
 
                read -p "Do you want to run this command now? (y/n): " run_cmd
 		       if [[ "$run_cmd" == "y" || "$run_cmd" == "Y" ]]; then
-	         nmcli connection show #enter the command you want ran 
+	         ip a #enter the command you want ran 
     fi            
 ;;
         8) echo "Goodbye $name" 
