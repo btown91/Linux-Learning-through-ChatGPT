@@ -67,7 +67,23 @@ case $option in
    fi
 ;;
 
-        5) echo "nmcli device wifi connect 'SSID' password 'your_password'" ;;
+        5) echo "nmcli device wifi connect 'SSID' password 'your_password'" 
+
+    	   	read -p "Do you want to run this command now? (y/n): " run_cmd
+		if [[ "$run_cmd" == "y" || "$run_cmd" == "Y" ]]; then
+
+        read -p "Enter the SSID (network name): " ssid
+        read -sp "Enter the password for '$ssid': " password
+        echo  # Add a blank line for clean spacing
+
+        # Show the user the final command (with masked password)
+        echo "Command to be run: nmcli device wifi connect \"$ssid\" password \"********\""
+        
+        nmcli device wifi connect "$ssid" password "$password"
+    else
+        echo "Skipping WiFi connection."
+    fi
+;;
 
         6) echo "nmcli connection show --active" 
            echo "This confirms your connection and shows the interface used (e.g. 'wlp1s0')" 
