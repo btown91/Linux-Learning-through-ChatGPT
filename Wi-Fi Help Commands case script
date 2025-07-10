@@ -28,29 +28,64 @@ read option
 
 case $option in
         1) echo "nmcli radio wifi on"
-           echo "This command enables the Wi-Fi Radio, allowing your system to detect and connect to networks" ;;
+           echo "This command enables the Wi-Fi Radio, allowing your system to detect and connect to networks" 
 
-  2) echo "nmcli radio"
-           echo "This shows whether the WiFi is enabled" ;;
+		        read -p "Do you want to run this command now? (y/n): " run_cmd
+		    if [[ "$run_cmd" == "y" || "$run_cmd" == "Y" ]]; then
+	      nmcli radio wifi on #enter the command you want ran 
+    fi
+;;
+        2) echo "nmcli radio"
+           echo "This shows whether the WiFi is enabled" 
+
+             read -p "Do you want to run this command now? (y/n): " run_cmd
+		       if [[ "$run_cmd" == "y" || "$run_cmd" == "Y" ]]; then
+	         nmcli radio #enter the command you want ran 
+  fi
+;;
 
         3) echo "nmcli device"
            echo "This shows the wireless device name ('wlp1s0') and its current state (e.g. 'disconnected' if not connected)"
            echo "Your output may look slightly different"
-           echo "(e.g.  wlp1s0  wifi  disconnected  --)" ;;
+           echo "(e.g.  wlp1s0  wifi  disconnected  --)" 
+           
+             read -p "Do you want to run this command now? (y/n): " run_cmd
+		       if [[ "$run_cmd" == "y" || "$run_cmd" == "Y" ]]; then
+           nmcli device #enter the command you want ran 
+  fi
+;;
 
         4) echo "nmcli device wifi list"
            echo "This scans for nearby networks and shows:"
            echo "**SSID** (network name)"
            echo "**Signal Strength**"
-           echo "**Security Type** (e.g. WPA2)" ;;
+           echo "**Security Type** (e.g. WPA2)" 
+
+             read -p "Do you want to run this command now? (y/n): " run_cmd
+		      if [[ "$run_cmd" == "y" || "$run_cmd" == "Y" ]]; then
+	        nmcli device wifi list #enter the command you want ran 
+   fi
+;;
 
         5) echo "nmcli device wifi connect 'SSID' password 'your_password'" ;;
 
         6) echo "nmcli connection show --active" 
-           echo "This confirms your connection and shows the interface used (e.g. 'wlp1s0')" ;;
+           echo "This confirms your connection and shows the interface used (e.g. 'wlp1s0')" 
 
-        7) echo "ip a" ;;
+	             read -p "Do you want to run this command now? (y/n): " run_cmd
+		        if [[ "$run_cmd" == "y" || "$run_cmd" == "Y" ]]; then
+	          nmcli connection show --active #enter the command you want ran 
+    fi
+;;
+             
+        7) echo "ip a" 
+           echo "This displays IP address and network interface information." #forgot to put this in in the last upload.
 
+               read -p "Do you want to run this command now? (y/n): " run_cmd
+		       if [[ "$run_cmd" == "y" || "$run_cmd" == "Y" ]]; then
+	         nmcli connection show #enter the command you want ran 
+    fi            
+;;
         8) echo "Goodbye $name" 
            break  ;;   #breaks the infinite loop and ends the script
 
