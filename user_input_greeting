@@ -8,7 +8,7 @@ echo # intentional space
 
 sleep 3
 
-read -p "Hello, $name. are you ready to begin?" run_cmd
+read -p "Hello, $name. are you ready to begin? (y/n)" run_cmd
 if [[ "$run_cmd" == "y" || "$run_cmd" == "Y" ]]; then echo "Let us begin"
 fi
 
@@ -16,13 +16,19 @@ sleep 2
 
 echo "What should we do?"
 # Begin case and execute actions within the code.
-while true; do
-	1) echo "Tell a story?"
-	2) echo "Create a file?"
-	3) echo "Make a directory?"
-	4) echo "Backup a directory?"
-	5) echo "Compress a directory into a zip?"
-	6) echo "Watch a train go by??" ; sleep 4 ; echo "My favorite"
-	7) echo "Show you the date and a calendar" 
+	while true; do
+	echo "1) Tell a story?"
+	sleep 1
+	echo "2) Create a file?"
+	sleep 1
+	echo "3) Make a directory?"
+	sleep 1
+	echo "4) Backup a directory?"
+	sleep 1
+	echo "5) Compress a directory into a zip?"
+	sleep 1
+	echo "6) Watch a train go by??"  #sleep 4 ; echo "My favorite"
+	sleep 1
+	echo "7) Show you the date and a calendar"
 
-read option
+done
