@@ -31,4 +31,38 @@ echo "What should we do?"
 	sleep 1
 	echo "7) Show you the date and a calendar"
 
+# (read option) Takes the input of the user after reading the options given from above. Then it will go into the case code to where the option chosen will be picked and then ran.
+	read option	
+case $option in
+	1) echo "Go read a book on linux. I do not have time to read you or tell you a story." 
+;;
+	2) echo "What kind of file do you want to make?"
+	   sleep 2
+	   echo #intentional space
+	   echo "1) .txt"
+	   echo "2) .sh"
+	   echo "3) Quit?"
+	read file_option
+	
+		case $file_option in
+			1)
+				echo "Enter a name for your text file (without extension)"
+				read filename
+				echo "What do you want to write inside the file"
+				read file_content
+				echo "$file_content" > "${filename}.txt"
+				echo "Text file '${filename}.txt' created."
+	;;
+			2)
+				echo "Enter a name for you bash file (without extension)"
+				read filename
+				echo "What do you want to write inside the file?"
+				read file_content
+				echo "file_content" > "${filename}.sh"
+				echo "Bash File '${filename}.bash' created"
+	;;
+			3)
+				echo "Do you want to quit and exit?"
+esac
+;;
 done
