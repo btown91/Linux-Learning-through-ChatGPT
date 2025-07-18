@@ -30,6 +30,8 @@ echo "What should we do?"
 	echo "6) Watch a train go by??"  #sleep 4 ; echo "My favorite"
 	sleep 1
 	echo "7) Show you the date and a calendar"
+	sleep 1
+	echo "8) Quit"
 
 # (read option) Takes the input of the user after reading the options given from above. Then it will go into the case code to where the option chosen will be picked and then ran.
 	read option	
@@ -54,15 +56,34 @@ case $option in
 				echo "Text file '${filename}.txt' created."
 	;;
 			2)
-				echo "Enter a name for you bash file (without extension)"
+				echo "Enter a name for your bash file (without extension)"
 				read filename
 				echo "What do you want to write inside the file?"
 				read file_content
-				echo "file_content" > "${filename}.sh"
-				echo "Bash File '${filename}.bash' created"
+				echo "$file_content" > "${filename}.sh"
+				echo "Bash File '${filename}.sh' created"
 	;;
 			3)
-				echo "Do you want to quit and exit?"
-esac
-;;
+			read -p "Well, $name. would you like to exit (y/n)" run_cmd 
+			if [[ "$run_cmd" == "y" || "$run_cmd" == "Y" ]]; then echo "Exiting Now" exit 0
+			fi
+			
+	;;
+			elif [[ "$run_cmd" == "n" || "$run_cmd" == "N" ]]; then read option
+			echo "Returning to main menu." 
+			break
+			
+			fi
+	;;
+			*)
+			echo "Invalid Entry"
+			;;
+
+	8)
+	echo "Goodbye, $name"
+	break 
+	;;
+
+	esac
 done
+
