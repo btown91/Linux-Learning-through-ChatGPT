@@ -82,8 +82,8 @@ case $option in
 	3) echo "Lets make a directory."
 		echo "What would you like to name this directory?"
 		read directory_name
-		echo "$directory_name" > "${directory_name}/"
-		echo "New directory '${directory_name}/ created"
+		mkdir "$directory_name" # This is what actually creates the new directory. Do not forget
+		echo "Directory '${directory_name}/ created"
 	;;
 
 	8)
