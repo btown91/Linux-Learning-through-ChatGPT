@@ -86,6 +86,18 @@ case $option in
 		echo "Directory '${directory_name}/ created"
 	;;
 
+	4) echo "Lets backup a directory."
+		SRC="$HOME/test"
+		DEST="$HOME/test_backup/practice_backup $(date +%Y%m%d)" 
+		
+		mkdir -p "$DEST"
+		cp -r "$SRC"/* "$DEST"
+
+		echo "Backup done at $(date) for $DEST" >> ~/test_backup/practice_backup_log
+
+		echo "Backup for this option is done"
+	;;
+
 	8)
 	echo "Goodbye, $name"
 	break 
