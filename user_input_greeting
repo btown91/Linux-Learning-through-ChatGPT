@@ -79,6 +79,13 @@ case $option in
 			echo "Invalid Entry"
 			;;
 
+	3) echo "Lets make a directory."
+		echo "What would you like to name this directory?"
+		read directory_name
+		echo "$directory_name" > "${directory_name}/"
+		echo "New directory '${directory_name}/ created"
+	;;
+
 	8)
 	echo "Goodbye, $name"
 	break 
