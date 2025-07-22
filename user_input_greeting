@@ -98,6 +98,23 @@ case $option in
 		echo "Backup for this option is done"
 	;;
 
+	5) echo "Lets Compress a directory into a zip"
+		echo "What directory would you like to compress?"
+		ls -d */ # List command to list only directories
+
+		
+	    echo "Type the name of the directory you'd like to compress (no trailing slash):"
+	    read target_dir
+
+		if [ -d "$target_dir" ]; then #checks to see if the inputed directory is present.
+			tar -cvf "${target_dir}.tar.gz" "$target_dir" # Compresses the inputed directory is the name of the tar file and the and the chosen direcotry for the tar.
+			echo "Directory '$target_dir' compressed into '${target_dir}.tar.gz'"
+		else
+			echo "Directory '$target_dir' does not exist."
+		fi
+	;;
+		
+
 	8)
 	echo "Goodbye, $name"
 	break 
