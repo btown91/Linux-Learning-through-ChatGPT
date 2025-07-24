@@ -123,6 +123,13 @@ case $option in
 		fi
 
 	;;
+
+		7) echo "Here is the Calendar and the date/time"
+
+		cal
+		date
+		echo #intentional space
+	;;
 		
 
 	8)
