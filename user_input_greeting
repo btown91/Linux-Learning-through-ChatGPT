@@ -113,6 +113,15 @@ case $option in
 			echo "Directory '$target_dir' does not exist."
 		fi
 	;;
+
+	6) echo "You want to watch a train go by? (y/n)" run_cmd
+		if [[ "$run_cmd" == "y" || "$run_cmd" == "Y" ]]; then sl exit 
+
+		elif [[ "$run_cmd" == "n" || "$run_cmd" == "N" ]] then; echo "Returning to main menu" break 
+	
+		fi
+
+	;;
 		
 
 	8)
