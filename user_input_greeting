@@ -114,10 +114,11 @@ case $option in
 		fi
 	;;
 
-	6) echo "You want to watch a train go by? (y/n)" run_cmd
-		if [[ "$run_cmd" == "y" || "$run_cmd" == "Y" ]]; then sl exit 
+	6) echo "You want to watch a train go by? (y/n)" 
+		read run_cmd
+		if [[ "$run_cmd" == "y" || "$run_cmd" == "Y" ]]; then sl; exit 0
 
-		elif [[ "$run_cmd" == "n" || "$run_cmd" == "N" ]] then; echo "Returning to main menu" break 
+		elif [[ "$run_cmd" == "n" || "$run_cmd" == "N" ]]; then echo "Returning to main menu" break 
 	
 		fi
 
